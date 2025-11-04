@@ -153,4 +153,3 @@ Dieses Projekt steht unter der MIT License. Siehe Datei LICENSE für Einzelheite
 > "Entropy is not chaos.  
 > It’s the silence between two collisions of probability."  
 > — Daniel Fitz, 2025
-> 
