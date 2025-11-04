@@ -6,7 +6,8 @@ Sicheres Login mit doppeltem Hashing des Passworts – nach Verwendung von Ident
 
 ## Über dieses Projekt
 
-Dieses Projekt zeigt eine Beispielimplementierung eines sicheren Login-Systems in ASP.NET MVC unter Verwendung von Entity Framework (EF) und zusätzlichem doppeltem Hashing des Passworts. Dabei wird nach dem üblichen Identity-System ein weitergehender Schutzmechanismus eingesetzt.
+Dieses Projekt zeigt eine Beispielimplementierung eines sicheren Login-Systems in ASP.NET MVC unter Verwendung von Entity Framework (EF) und
+zusätzlichem doppeltem Hashing des Passworts. Dabei wird nach dem üblichen Identity-System ein weitergehender Schutzmechanismus eingesetzt.
 
 ---
 
@@ -24,15 +25,28 @@ Dieses Projekt zeigt eine Beispielimplementierung eines sicheren Login-Systems i
 ## Projektstruktur
 
 ```
-PasswordSolution
-
+PasswordSolution/
+ ├── Controllers/
+ ├── Data/
+ ├── Models/
+ ├── Utility/
+ ├── ViewModels/
+ ├── Views/
+ ├── wwwroot/
+ ├── appsettings.json
+ └── Program.cs
 ```
+
+---
+
 ## Voraussetzungen
 
 + .NET SDK (z. B. .NET 9 oder .NET 10)
 + Visual Studio, IntelliJ Rider oder ein alternativer C#-Entwicklungseditor
 + SQL-Datenbank (z. B. SQL Server, SQLite oder eine andere von EF unterstützte Datenbank)
 + Kenntnis in ASP.NET MVC, Entity Framework und Identity wird empfohlen
+
+---
 
 ## Installation & Einrichtung
 
@@ -90,6 +104,8 @@ Projekt bauen und starten. Beim ersten Start werden Benutzer‐Registrierung und
 + **Views**: Razor-Views für die UI.
 + **wwwroot**: Statische Dateien wie CSS, JavaScript, Bilder.
 
+---
+
 ## Sicherheit
 
 Besonderer Schwerpunkt liegt auf dem doppelten Hashing von Passwörtern:  
@@ -101,7 +117,8 @@ Besonderer Schwerpunkt liegt auf dem doppelten Hashing von Passwörtern:
 ```
 Dieses Beispiel stellt kein fertiges Produktionssystem dar.
 ```
-Es soll als Vorlage und Lernprojekt dienen. In einer produktiven Umgebung müssen weitere Aspekte wie z. B. Multi-Factor-Authentication (MFA), sichere Schlüsselverwaltung, Überwachung, Logging, Schutz gegen Brute-Force, Passwort-Richtlinien usw. implementiert werden.
+Es soll als Vorlage und Lernprojekt dienen. In einer produktiven Umgebung müssen weitere Aspekte wie z. B. Multi-Factor-Authentication (MFA),
+sichere Schlüsselverwaltung, Überwachung, Logging, Schutz gegen Brute-Force, Passwort-Richtlinien usw. implementiert werden.
 
 ---
 
