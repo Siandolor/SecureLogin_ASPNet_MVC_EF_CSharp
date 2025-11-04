@@ -1,0 +1,89 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using PasswordSolution.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PasswordSolution</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PasswordSolution.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PasswordSolution</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                    aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarMain">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ms-auto">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li class="nav-item d-flex align-items-center me-3">
+                            <span class="text-muted">Eingeloggt als&nbsp;<strong>@User.Identity?.Name</strong></span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-secondary btn-sm me-2"
+                               asp-controller="Account" asp-action="Profile">Profil</a>
+                        </li>
+                        <li class="nav-item">
+                            <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-outline-danger btn-sm">Logout</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary btn-sm me-2"
+                               asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary btn-sm"
+                               asp-controller="Account" asp-action="Register">Register</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted mt-auto">
+    <div class="container py-2 text-center small">
+        &copy; 2025 - PasswordSolution - <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
